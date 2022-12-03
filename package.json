@@ -1,6 +1,6 @@
 {
-  "name": "react-library",
-  "version": "1.0.0",
+  "name": "@iyadmosa/react-library",
+  "version": "1.0.0-3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IyadMosa/react-library.git"
+    "url": "git+https://github.com/iyadmosa/react-library.git"
   },
   "author": "Iyad Aljwareesh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IyadMosa/react-library/issues"
+    "url": "https://github.com/iyadmosa/react-library/issues"
   },
-  "homepage": "https://github.com/IyadMosa/react-library#readme",
+  "homepage": "https://github.com/iyadmosa/react-library#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
@@ -31,5 +31,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/IyadMosa"
+  }
 }
