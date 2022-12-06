@@ -1,11 +1,16 @@
 import React from "react";
+import { Wrapper } from "./styles";
 
 export interface ButtonProps {
-    label: string;
+  label: string;
 }
 
 const Button = (props: ButtonProps) => {
-    return <button>{props.label}</button>;
+  return (
+    <Wrapper>
+      <button>{props.label}</button>
+    </Wrapper>
+  );
 };
 
 export default Button;
