@@ -1,6 +1,6 @@
 {
   "name": "@iyadmosa/react-library",
-  "version": "1.0.0-32",
+  "version": "1.0.0-36",
   "description": "",
   "main": "dist/cjs/index.js",
   "scripts": {

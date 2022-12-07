@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { StyledButton } from "./styles";
 
 export interface ButtonProps {
   disabled?: boolean;
@@ -7,31 +8,21 @@ export interface ButtonProps {
   minWidth?: number;
   minHeight?: number;
   fontSize?: number;
-  color?: string;
 }
 
 const Button: FC<ButtonProps> = ({
   disabled = false,
-  minWidth = 300,
-  minHeight = 50,
-  color = "blue",
   onClick = () => {},
   ...props
 }) => {
   return (
-    <button
+    <StyledButton
       disabled={disabled}
       onClick={(e) => !disabled && onClick(e)}
-      style={{
-        minWidth: `${minWidth}px`,
-        minHeight: `${minHeight}px`,
-        borderRadius: `8px`,
-        backgroundColor: `${color}`,
-      }}
       {...props}
     >
       {props.label}
-    </button>
+    </StyledButton>
   );
 };
 
