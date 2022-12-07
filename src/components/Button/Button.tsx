@@ -1,15 +1,37 @@
-import React from "react";
-import { Wrapper } from "./styles";
+import React, { FC } from "react";
 
 export interface ButtonProps {
-  label: string;
+  disabled?: boolean;
+  label?: string;
+  onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
+  minWidth?: number;
+  minHeight?: number;
+  fontSize?: number;
+  color?: string;
 }
 
-const Button = (props: ButtonProps) => {
+const Button: FC<ButtonProps> = ({
+  disabled = false,
+  minWidth = 300,
+  minHeight = 50,
+  color = "blue",
+  onClick = () => {},
+  ...props
+}) => {
   return (
-    <Wrapper>
-      <button>{props.label}</button>
-    </Wrapper>
+    <button
+      disabled={disabled}
+      onClick={(e) => !disabled && onClick(e)}
+      style={{
+        minWidth: `${minWidth}px`,
+        minHeight: `${minHeight}px`,
+        borderRadius: `8px`,
+        backgroundColor: `${color}`,
+      }}
+      {...props}
+    >
+      {props.label}
+    </button>
   );
 };
 
