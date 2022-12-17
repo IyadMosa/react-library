@@ -1,52 +1,15 @@
 import styled from "styled-components";
+import {TableProps} from "./Table";
 
-export const Container = styled.div`
+export const Container = styled.div<TableProps>`
   display: flex;
   flex-direction: column;
-  min-width: 500px;
-  min-height: 400px;
+  min-width: ${({ minWidth }) => (minWidth ? minWidth + "px" : "500px")};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight + "px" : "400px")};
   box-shadow: 1px 1px 10px rgba(85, 85, 85, 0.15);
   border-radius: 5px;
   padding: 5px;
   background: white;
-
-  .ReactTable.-striped .rt-tr.-odd.selected {
-    background-color: deepskyblue;
-  }
-
-  .ReactTable.-striped .rt-tr.-even.selected {
-    background-color: deepskyblue;
-  }
-
-  .ReactTable {
-    max-height: calc(100% - 60px);
-  }
-
-  .TableTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .inner-table-div {
-    box-shadow: 3px 2px 5px 0 #9999;
-  }
-
-  .table-total {
-  }
-
-  .table-total .h2 {
-    font-size: large;
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-
-  .table-total .input {
-    margin-bottom: 5px;
-    margin-right: 5px;
-    width: fit-content;
-  }
 `;
 
 export const TitleWrapper = styled.div`

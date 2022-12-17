@@ -15,32 +15,31 @@ export interface TableProps {
   columns: Column[];
   pageSize?: number;
   addComponent?: React.ReactNode | string;
-  filterable: boolean;
+  filterable?: boolean;
+  minWidth?: number;
+  minHeight?: number;
 }
 
 const Table: FC<TableProps> = ({
   tableTitle = "Table Title",
   data = [],
   columns,
-  pageSize = 10,
-  addComponent = <div />,
-  filterable = false,
   ...props
 }) => {
   return (
-    <Container className={"table-container"}>
+    <Container tableTitle={tableTitle} data={data} columns={columns} {...props}>
       <HeaderWrapper>
         <HeaderTitleAddWrapper>
           <TitleWrapper>{tableTitle}</TitleWrapper>
-          <HeaderButtonsWrapper>{addComponent}</HeaderButtonsWrapper>
+          <HeaderButtonsWrapper>{props.addComponent}</HeaderButtonsWrapper>
         </HeaderTitleAddWrapper>
       </HeaderWrapper>
       <ReactTable
         className="-striped -highlight"
         data={data}
-        filterable={filterable}
+        filterable={props.filterable ? props.filterable : true}
         columns={columns}
-        defaultPageSize={pageSize}
+        defaultPageSize={props.pageSize ? props.pageSize : 10}
       />
     </Container>
   );
