@@ -64,4 +64,6 @@ export const ButtonsWrapper = styled.div`
   height: 60px;
   padding: 5px;
   gap: 15px;
+  border: 1px solid beige;
+  background: #ffffff;
 `;

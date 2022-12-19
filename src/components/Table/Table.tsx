@@ -7,7 +7,7 @@ import {
   TitleWrapper,
 } from "./styles";
 import ReactTable, { Column } from "react-table";
-import "react-table/react-table.css";
+import "../../react-table.css";
 
 export interface TableProps {
   tableTitle: string;

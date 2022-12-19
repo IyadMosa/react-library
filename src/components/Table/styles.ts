@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TableProps} from "./Table";
+import { TableProps } from "./Table";
 
 export const Container = styled.div<TableProps>`
   display: flex;

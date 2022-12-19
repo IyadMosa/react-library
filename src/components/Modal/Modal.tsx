@@ -23,7 +23,6 @@ const Modal: FC<ModalProps> = ({
   isShowButtons = true,
   title = "",
 }) => {
-  console.log("modal");
   return (
     <Container className={"modal"}>
       <HeaderWrapper>
