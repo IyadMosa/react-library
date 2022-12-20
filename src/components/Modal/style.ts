@@ -50,12 +50,10 @@ export const ContentsWrapper = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
-  width: 100%;
-  padding: 20px;
   gap: 50px;
   max-height: 90%;
   min-height: 80%;
-  border: 1px solid beige;
+  border: 1px solid whitesmoke;
   overflow: overlay;
 `;
 export const ButtonsWrapper = styled.div`
@@ -64,6 +62,4 @@ export const ButtonsWrapper = styled.div`
   height: 60px;
   padding: 5px;
   gap: 15px;
-  border: 1px solid beige;
-  background: #ffffff;
 `;
