@@ -1,6 +1,6 @@
 {
   "name": "@iyadmosa/react-library",
-  "version": "1.0.0-85",
+  "version": "1.0.0-86",
   "description": "",
   "repository": {
     "type": "git",
@@ -68,7 +68,7 @@
     "postcss-simple-vars": "^7.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-table": "^7.8.0",
+    "react-table": "^6.11.4",
     "rollup": "^2.56.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -76,6 +76,8 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "styled-components": "^5.3.6",
     "ts-jest": "^26.5.6",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2"
   }
 }
