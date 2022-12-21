@@ -1,6 +1,7 @@
 import * as Style from "./styles";
 // @ts-ignore
 import React, { FC } from "react";
+import { Title } from "./styles";
 
 interface InputProps {
   disabled?: boolean;
@@ -15,6 +16,7 @@ interface InputProps {
   value?: string;
   onChange?: any;
   onPressEnter?: any;
+  isRequired?: boolean;
 }
 const TextField: FC<InputProps> = ({
   disabled,
@@ -29,15 +31,18 @@ const TextField: FC<InputProps> = ({
   onChange,
   onPressEnter = () => 0,
   placeHolder = "",
+  ...props
 }) => {
   const handleChange = (e: any) => onChange(e.target.value);
   const handleClick = (e: any) =>
     onPressEnter && e.key === "Enter" ? onPressEnter(e.target.value) : null;
-
+  const isRequiredClass = props.isRequired ? "required" : "";
   return (
     <div>
       <Style.Wrapper>
-        <span>{title}</span>
+        <Title disabled={disabled} className={`${isRequiredClass}`}>
+          {title}
+        </Title>
         <Style.InputDiv
           disabled={disabled}
           placeholder={placeHolder}

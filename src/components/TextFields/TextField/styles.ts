@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryBlue, blackAndWhite, magenta } from "../colors";
+import { primaryBlue, blackAndWhite, magenta } from "../../colors";
 
 export const Wrapper = styled.div`
   font-size: 20px;
@@ -43,7 +43,7 @@ export const ErrorMsgWrapper = styled.div<{
   display: flex;
   padding-top: 5px;
   color: ${magenta[500]};
-  font-size: 10px;
+  font-size: 15px;
 
   span {
     margin-left: 5px;
@@ -83,4 +83,17 @@ export const InputDiv = styled.input<{
 
   text-align: left;
   vertical-align: text-top;
+`;
+
+export const Title = styled.span<{
+  disabled?: boolean;
+  isError?: any;
+}>`
+  ${({ disabled, isError }) =>
+    getStrokeColor(disabled, isError, primaryBlue[200])};};
+
+  &.required:after {
+    color: ${magenta[500]};
+    content: ' *';
+  }
 `;

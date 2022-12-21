@@ -1,7 +1,7 @@
 // @ts-ignore
 import React, { useState } from "react";
 import Modal from "./Modal";
-import TextField from "../TextField";
+import TextField from "../TextFields/TextField";
 
 export default {
   title: "Modal",

@@ -36,6 +36,7 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
             <AddCircleIcon />
           </IconButton>
         }
+        minWidth={props.minWidth}
       />
 
       {showAddModel && (

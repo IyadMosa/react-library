@@ -24,3 +24,11 @@ export const textFieldWithError = () => {
     <TextField title={"Value"} value={""} isError={true} errorMsg={errorMsg} />
   );
 };
+
+export const required = () => {
+  return <TextField title={"required"} value={""} isRequired={true} />;
+};
+
+export const disabled = () => {
+  return <TextField title={"disabled"} value={""} disabled={true} />;
+};
