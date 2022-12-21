@@ -2,8 +2,8 @@ import React, { FC, useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { Column } from "react-table";
-import Table from "./Table";
-import Modal from "../Modal";
+import Table from "../Table/Table";
+import Modal from "../../Modal";
 
 export interface TableWithFormProps {
   tableTitle: string;

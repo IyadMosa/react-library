@@ -1,10 +1,9 @@
 // @ts-ignore
 import React from "react";
-import Table from "./Table";
 import TableWithAddForm from "./TableWithAddForm";
 
 export default {
-  title: "Table"
+  title: "Table",
 };
 const columns = [
   {
@@ -25,25 +24,16 @@ const columns = [
 
 const data = [
   {
-     "id":1,
-    "firstName":"Iyad"
-  }
+    id: 1,
+    firstName: "Iyad",
+  },
 ];
-export const table = () => (
-  <Table
+export const tableWithAddForm = () => (
+  <TableWithAddForm
     tableTitle="testing"
     columns={columns}
     data={data}
+    modelTitle={"add form"}
+    onAddSubmit={() => alert("Modal submit")}
   />
-);
-
-
-export const tableWithAddForm = () => (
-    <TableWithAddForm
-        tableTitle="testing"
-        columns={columns}
-        data={data}
-        modelTitle={"add form"}
-        onAddSubmit={() => alert("Modal submit")}
-    />
 );
