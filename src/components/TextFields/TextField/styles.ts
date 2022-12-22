@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryBlue, blackAndWhite, magenta } from "../../colors";
+import { primaryBlue, blackAndWhite, magenta } from "../../../colors";
 
 export const Wrapper = styled.div`
   font-size: 20px;
