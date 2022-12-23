@@ -8,7 +8,6 @@ export default {
 
 export const textField = () => {
   const [value, setValue] = useState("");
-  console.log(value);
   return (
     <TextField
       title={"value"}
