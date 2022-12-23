@@ -18,6 +18,8 @@ export interface TableProps {
   filterable?: boolean;
   minWidth?: number;
   minHeight?: number;
+  disabled?: boolean;
+  tableWidth?: string;
 }
 
 const Table: FC<TableProps> = ({
@@ -35,7 +37,7 @@ const Table: FC<TableProps> = ({
         </HeaderTitleAddWrapper>
       </HeaderWrapper>
       <ReactTable
-        className="-striped -highlight"
+        className="-striped -highlight table"
         data={data}
         filterable={props.filterable ? props.filterable : true}
         columns={columns}

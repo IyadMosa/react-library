@@ -4,12 +4,16 @@ import { TableProps } from "./Table";
 export const Container = styled.div<TableProps>`
   display: flex;
   flex-direction: column;
+  width: ${({ tableWidth }) => (tableWidth ? tableWidth + "px" : "100%")};
   min-width: ${({ minWidth }) => (minWidth ? minWidth + "px" : "500px")};
   min-height: ${({ minHeight }) => (minHeight ? minHeight + "px" : "400px")};
   box-shadow: 1px 1px 10px rgba(85, 85, 85, 0.15);
   border-radius: 5px;
   padding: 5px;
   background: white;
+  .table {
+    height: 100%;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -56,6 +60,7 @@ export const HeaderButtonsWrapper = styled.div`
   justify-content: flex-end;
   gap: 10px;
   min-width: 50px;
+  padding: 5px;
 `;
 export const TotalWrapper = styled.div`
   min-height: 40px;

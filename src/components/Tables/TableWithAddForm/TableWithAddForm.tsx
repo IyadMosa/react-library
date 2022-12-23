@@ -14,6 +14,7 @@ export interface TableWithFormProps {
   minHeight?: number;
   modelTitle?: string;
   onAddSubmit?: any;
+  disabled?: boolean;
 }
 
 const TableWithAddForm: FC<TableWithFormProps> = ({
@@ -23,17 +24,17 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
   ...props
 }) => {
   return (
-    <div>
-      <Table
-        tableTitle={tableTitle}
-        data={data}
-        columns={columns}
-        addComponent={
-          <AddForm addForm={props.addForm} onAddSubmit={props.onAddSubmit} />
-        }
-        minWidth={props.minWidth}
-      />
-    </div>
+    <Table
+      tableTitle={tableTitle}
+      data={data}
+      columns={columns}
+      addComponent={
+        <AddForm addForm={props.addForm} onAddSubmit={props.onAddSubmit} />
+      }
+      minWidth={props.minWidth}
+      disabled={props.disabled}
+      {...props}
+    />
   );
 };
 export default TableWithAddForm;
