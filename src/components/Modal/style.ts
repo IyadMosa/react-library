@@ -49,13 +49,14 @@ export const HeaderWrapper = styled.div`
 
 export const ContentsWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   height: 100%;
   gap: 50px;
   max-height: 90%;
   min-height: 80%;
   border: 1px solid whitesmoke;
   overflow: overlay;
+  padding-left: 40px;
 `;
 export const ButtonsWrapper = styled.div`
   display: flex;
