@@ -13,7 +13,7 @@ export const Container = styled.div`
   max-height: 500px;
   display: flex;
   flex-direction: column;
-  z-index: 99999;
+  z-index: 99;
 `;
 
 export const TitleWrapper = styled.div`
