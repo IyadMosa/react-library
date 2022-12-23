@@ -7,3 +7,7 @@ export { default as TableWithAddForm } from "./Tables/TableWithAddForm";
 export * from "./AddEditForm/AddEditSearchForm";
 export { default as Dropdown } from "./Dropdowns/Dropdown";
 export { default as DropdownWithAddForm } from "./Dropdowns/DropdownWithAdd";
+export { default as MainScreen } from "./Screens/MainScreen";
+export { default as NavbarScroller } from "./NavbarScroller/NavbarScroller";
+export { default as EmptyScreen } from "./Screens/EmptyScreen";
+export { default as TableScreen } from "./Screens/TableScreen";
