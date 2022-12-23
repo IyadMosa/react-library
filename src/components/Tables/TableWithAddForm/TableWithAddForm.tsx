@@ -28,7 +28,9 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
         tableTitle={tableTitle}
         data={data}
         columns={columns}
-        addComponent={<AddForm />}
+        addComponent={
+          <AddForm addForm={props.addForm} onAddSubmit={props.onAddSubmit} />
+        }
         minWidth={props.minWidth}
       />
     </div>

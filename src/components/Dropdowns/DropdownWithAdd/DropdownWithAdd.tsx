@@ -26,7 +26,9 @@ const DropdownWithAddForm: FC<DropdownProps> = ({
       <Dropdown
         title={title}
         value={value}
-        addComponent={<AddForm />}
+        addComponent={
+          <AddForm addForm={props.addForm} onAddSubmit={props.onAddSubmit} />
+        }
         {...props}
       />
     </Container>

@@ -13,14 +13,10 @@ export interface AEProps {
   showAdd?: boolean;
   disabledAdd?: boolean;
   addForm?: React.ReactNode | string;
-  addValue?: object;
-  onAddChange?: any;
   onAddSubmit?: any;
   showEdit?: boolean;
   disabledEdit?: boolean;
   editForm?: React.ReactNode | string;
-  editValue?: object;
-  onEditChange?: any;
   onEditSubmit?: any;
   showSearch?: boolean;
   disabledSearch?: boolean;
