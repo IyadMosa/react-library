@@ -50,13 +50,11 @@ export const HeaderWrapper = styled.div`
 export const ContentsWrapper = styled.div`
   display: flex;
   justify-content: left;
-  height: 100%;
-  gap: 50px;
-  max-height: 90%;
-  min-height: 80%;
+  min-height: 75%;
   border: 1px solid whitesmoke;
   overflow: overlay;
   padding-left: 40px;
+  padding-top: 20px;
 `;
 export const ButtonsWrapper = styled.div`
   display: flex;
