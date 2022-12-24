@@ -18,7 +18,7 @@ const TextFieldRange: FC<TextFieldRangeProps> = ({
   onChange = () => 0,
   disabled = false,
   title,
-  min = 1,
+  min = 0,
   max = 1000000,
   isRequired = true,
   ...props
