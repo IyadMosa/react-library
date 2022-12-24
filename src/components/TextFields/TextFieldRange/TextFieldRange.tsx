@@ -18,7 +18,7 @@ const TextFieldRange: FC<TextFieldRangeProps> = ({
   onChange = () => 0,
   disabled = false,
   title,
-  min = 0,
+  min = 1,
   max = 1000000,
   isRequired = true,
   ...props
@@ -31,7 +31,7 @@ const TextFieldRange: FC<TextFieldRangeProps> = ({
         setIsError(true);
         setErrorMsg("Contains invalid letters or characters");
         break;
-      case isRequired && value === 0:
+      case isRequired && value.toString() === "":
         setIsError(true);
         setErrorMsg("This filed is required");
         break;

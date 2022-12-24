@@ -1,5 +1,5 @@
+// @ts-ignore
 import React, { useState } from "react";
-import TextField from "./TextFieldRange";
 import TextFieldRange from "./TextFieldRange";
 
 export default {
