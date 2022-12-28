@@ -13,3 +13,4 @@ export { default as EmptyScreen } from "./Screens/EmptyScreen";
 export { default as TableScreen } from "./Screens/TableScreen";
 export { default as DatePickerCustom } from "./DatePickers/DatePickerCustom";
 export { default as Checkbox } from "./Checkbox";
+export { default as Tabs } from "./Tabs";
