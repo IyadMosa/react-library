@@ -14,7 +14,7 @@ function convert(str) {
   const date = new Date(str),
     month = ("0" + (date.getMonth() + 1)).slice(-2),
     day = ("0" + date.getDate()).slice(-2);
-  return [day, month, date.getFullYear()].join("-") + "T04:00:00.000Z";
+  return [day, month, date.getFullYear()].join("-"); // + "T04:00:00.000Z";
 }
 
 const DatePickerCustom: FC<Props> = ({
