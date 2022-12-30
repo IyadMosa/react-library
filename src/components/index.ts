@@ -12,5 +12,5 @@ export { default as NavbarScroller } from "./NavbarScroller/NavbarScroller";
 export { default as EmptyScreen } from "./Screens/EmptyScreen";
 export { default as TableScreen } from "./Screens/TableScreen";
 export { default as DatePickerCustom } from "./DatePickers/DatePickerCustom";
-export { default as Checkbox } from "./Checkbox";
+export * from "./Checkbox";
 export { default as Tabs } from "./Tabs";

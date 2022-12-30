@@ -80,6 +80,20 @@ export const StyledCheckbox = styled.div<{
   }
 `;
 
+export const TitleWrapper = styled.div`
+  width: 100%;
+  height: 14px;
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: black;
+`;
+
 export const StyledCheckboxWrapper = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;

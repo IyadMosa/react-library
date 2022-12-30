@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CheckboxDiv from "./Checkbox";
 import Checkbox from "./Checkbox";
+import CheckboxLabled from "./CheckboxLabeled";
 
 export const Basic = (args) => {
   const [checked, setChecked] = useState(false);
@@ -98,5 +99,19 @@ export const checkboxTest = () => {
     <Checkbox checked={checked} onChange={handleOnChange}>
       Test
     </Checkbox>
+  );
+};
+
+export const checkboxLabeled = () => {
+  const [checked, setChecked] = useState(false);
+  const handleOnChange = (e) => {
+    setChecked((prev) => !prev);
+  };
+  return (
+    <CheckboxLabled
+      checked={checked}
+      onChange={handleOnChange}
+      label={"Label"}
+    />
   );
 };
