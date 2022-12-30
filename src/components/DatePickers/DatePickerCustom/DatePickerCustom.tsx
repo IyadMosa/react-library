@@ -10,13 +10,6 @@ export interface Props {
   onChange?: any;
 }
 
-function convert(str) {
-  const date = new Date(str),
-    month = ("0" + (date.getMonth() + 1)).slice(-2),
-    day = ("0" + date.getDate()).slice(-2);
-  return [day, month, date.getFullYear()].join("-"); // + "T04:00:00.000Z";
-}
-
 const DatePickerCustom: FC<Props> = ({
   label = "",
   date = "",
@@ -30,7 +23,7 @@ const DatePickerCustom: FC<Props> = ({
         className={"date"}
         format="dd-MM-yyyy"
         width={300}
-        onChange={(date) => onChange(convert(date.value))}
+        onChange={(date) => onChange(date.value)}
       />
     </Container>
   );
