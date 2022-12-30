@@ -25,6 +25,7 @@ export const tableScreen = () => {
       columns={columns}
       data={[]}
       onAddSubmit={() => alert("submit")}
+      onInit={() => console.log("send rest...")}
     />
   );
 };

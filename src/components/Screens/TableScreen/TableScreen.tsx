@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import EmptyScreen from "../EmptyScreen";
 import TableWithAddForm from "../../Tables/TableWithAddForm";
 import { Column } from "react-table";
@@ -11,6 +11,7 @@ export interface Props {
   addForm: React.ReactNode | string;
   modelTitle?: string;
   onAddSubmit: any;
+  onInit: any;
 }
 
 const TablePage: FC<Props> = ({
@@ -20,14 +21,26 @@ const TablePage: FC<Props> = ({
   onAddSubmit = () => 0,
   modelTitle = "",
   disabled = false,
+  onInit = () => 0,
 }) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onInit();
+    }, 15000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <TableWithAddForm
       tableTitle={""}
       data={data}
       columns={columns}
       addForm={addForm}
-      onAddSubmit={onAddSubmit}
+      onAddSubmit={() => {
+        onAddSubmit();
+        setTimeout(() => {
+          onInit();
+        }, 1000);
+      }}
       modelTitle={modelTitle}
       disabled={disabled}
       minHeight={600}
@@ -42,6 +55,7 @@ const TableScreen: FC<Props> = ({
   columns = [],
   addForm,
   onAddSubmit = () => 0,
+  onInit = () => 0,
   ...props
 }) => {
   return (
@@ -53,6 +67,7 @@ const TableScreen: FC<Props> = ({
           columns={columns}
           addForm={addForm}
           onAddSubmit={onAddSubmit}
+          onInit={onInit}
           title={""}
           disabled={props.disabled}
         />
