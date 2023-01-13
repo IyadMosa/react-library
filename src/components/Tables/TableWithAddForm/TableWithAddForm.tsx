@@ -15,12 +15,14 @@ export interface TableWithFormProps {
   modelTitle?: string;
   onAddSubmit?: any;
   disabled?: boolean;
+  disabledSubmit: boolean;
 }
 
 const TableWithAddForm: FC<TableWithFormProps> = ({
   tableTitle = "Table Title",
   data = [],
   columns,
+  disabledSubmit = false,
   ...props
 }) => {
   return (
@@ -29,7 +31,11 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
       data={data}
       columns={columns}
       addComponent={
-        <AddForm addForm={props.addForm} onAddSubmit={props.onAddSubmit} />
+        <AddForm
+          addForm={props.addForm}
+          onAddSubmit={props.onAddSubmit}
+          disabledSubmit={disabledSubmit}
+        />
       }
       minWidth={props.minWidth}
       disabled={props.disabled}

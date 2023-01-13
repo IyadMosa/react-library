@@ -12,6 +12,7 @@ export interface Props {
   modelTitle?: string;
   onAddSubmit: any;
   onInit: any;
+  disabledSubmit: boolean;
 }
 
 const TablePage: FC<Props> = ({
@@ -22,6 +23,7 @@ const TablePage: FC<Props> = ({
   modelTitle = "",
   disabled = false,
   onInit = () => 0,
+  disabledSubmit = false,
 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,6 +47,7 @@ const TablePage: FC<Props> = ({
       disabled={disabled}
       minHeight={600}
       minWidth={600}
+      disabledSubmit={disabledSubmit}
     />
   );
 };
@@ -56,6 +59,7 @@ const TableScreen: FC<Props> = ({
   addForm,
   onAddSubmit = () => 0,
   onInit = () => 0,
+  disabledSubmit = false,
   ...props
 }) => {
   return (
@@ -70,6 +74,7 @@ const TableScreen: FC<Props> = ({
           onInit={onInit}
           title={""}
           disabled={props.disabled}
+          disabledSubmit
         />
       }
     />

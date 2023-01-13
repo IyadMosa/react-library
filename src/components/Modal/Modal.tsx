@@ -14,6 +14,7 @@ export interface ModalProps {
   onClose?: any;
   onSubmit?: any;
   isShowButtons?: boolean;
+  disabledSubmit: boolean;
 }
 
 const Modal: FC<ModalProps> = ({
@@ -21,7 +22,9 @@ const Modal: FC<ModalProps> = ({
   onClose = () => 0,
   onSubmit = () => 0,
   isShowButtons = true,
+  disabledSubmit = false,
   title = "",
+  ...props
 }) => {
   return (
     <Container className={"modal"}>
@@ -34,7 +37,11 @@ const Modal: FC<ModalProps> = ({
       <ContentsWrapper>{children}</ContentsWrapper>
       {isShowButtons && (
         <ButtonsWrapper>
-          <button className="btn btn-success" onClick={onSubmit}>
+          <button
+            className="btn btn-success"
+            onClick={onSubmit}
+            disabled={disabledSubmit}
+          >
             {"Submit"}
           </button>
           <button className="btn btn-primary" onClick={onClose}>
