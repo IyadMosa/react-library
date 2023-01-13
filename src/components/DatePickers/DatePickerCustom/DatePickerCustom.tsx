@@ -23,7 +23,7 @@ const DatePickerCustom: FC<Props> = ({
         className={"date"}
         format="dd-MM-yyyy"
         width={300}
-        onChange={(date) => onChange(date.value)}
+        onChange={(date) => onChange(date.value.toLocaleDateString("en-UK"))}
       />
     </Container>
   );
