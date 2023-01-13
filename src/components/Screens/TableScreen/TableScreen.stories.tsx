@@ -26,6 +26,7 @@ export const tableScreen = () => {
       data={[]}
       onAddSubmit={() => alert("submit")}
       onInit={() => console.log("send rest...")}
+      disabledSubmit={false}
     />
   );
 };

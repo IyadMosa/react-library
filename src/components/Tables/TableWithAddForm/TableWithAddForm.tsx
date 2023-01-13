@@ -34,7 +34,7 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
         <AddForm
           addForm={props.addForm}
           onAddSubmit={props.onAddSubmit}
-          disabledSubmit={disabledSubmit}
+          disabledSubmit2={disabledSubmit}
         />
       }
       minWidth={props.minWidth}

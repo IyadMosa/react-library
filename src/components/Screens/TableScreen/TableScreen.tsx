@@ -74,7 +74,7 @@ const TableScreen: FC<Props> = ({
           onInit={onInit}
           title={""}
           disabled={props.disabled}
-          disabledSubmit
+          disabledSubmit={disabledSubmit}
         />
       }
     />

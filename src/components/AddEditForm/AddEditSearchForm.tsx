@@ -22,7 +22,7 @@ export interface AEProps {
   disabledSearch?: boolean;
   searchForm?: React.ReactNode | string;
   onSearchSubmit?: any;
-  disabledSubmit: boolean;
+  disabledSubmit2: boolean;
 }
 
 const AddButton = ({ disabled = false, onClick }) => {
@@ -68,6 +68,7 @@ const AddEditSearchForm: FC<AEProps> = ({
   showAdd = true,
   showEdit = false,
   showSearch = false,
+  disabledSubmit2 = false,
   ...props
 }) => {
   const [showAddModel, setShowAddModel] = useState(false);
@@ -95,7 +96,7 @@ const AddEditSearchForm: FC<AEProps> = ({
               props.onAddSubmit();
               setShowAddModel(false);
             }}
-            disabledSubmit={props.disabledSubmit}
+            disabledSubmit={disabledSubmit2}
           >
             {props.addForm}
           </Modal>
@@ -121,7 +122,7 @@ const AddEditSearchForm: FC<AEProps> = ({
               props.onEditSubmit();
               setShowEditModel(false);
             }}
-            disabledSubmit={props.disabledSubmit}
+            disabledSubmit={disabledSubmit2}
           >
             {props.editForm}
           </Modal>
@@ -147,7 +148,7 @@ const AddEditSearchForm: FC<AEProps> = ({
               props.onSearchSubmit();
               setShowSearchModel(false);
             }}
-            disabledSubmit={props.disabledSubmit}
+            disabledSubmit={disabledSubmit2}
           >
             {props.searchForm}
           </Modal>
@@ -161,7 +162,7 @@ export default AddEditSearchForm;
 export const AddForm = ({ ...props }) => {
   return (
     <AddEditSearchForm
-      disabledSubmit={props.disabledSubmit}
+      disabledSubmit2={true}
       showAdd={true}
       showEdit={false}
       showSearch={false}
@@ -173,7 +174,7 @@ export const AddForm = ({ ...props }) => {
 export const EditForm = ({ ...props }) => {
   return (
     <AddEditSearchForm
-      disabledSubmit={props.disabledSubmit}
+      disabledSubmit2={props.disabledSubmit}
       showAdd={false}
       showEdit={true}
       showSearch={false}
@@ -185,7 +186,7 @@ export const EditForm = ({ ...props }) => {
 export const SearchForm = ({ ...props }) => {
   return (
     <AddEditSearchForm
-      disabledSubmit={props.disabledSubmit}
+      disabledSubmit2={props.disabledSubmit}
       showAdd={false}
       showEdit={false}
       showSearch={true}
@@ -197,7 +198,7 @@ export const SearchForm = ({ ...props }) => {
 export const AddEditForm = ({ ...props }) => {
   return (
     <AddEditSearchForm
-      disabledSubmit={props.disabledSubmit}
+      disabledSubmit2={props.disabledSubmit}
       showAdd={true}
       showEdit={true}
       showSearch={false}
