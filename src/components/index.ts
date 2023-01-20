@@ -14,4 +14,5 @@ export { default as TableScreen } from "./Screens/TableScreen";
 export { default as DatePickerCustom } from "./DatePickers/DatePickerCustom";
 export * from "./Checkbox";
 export * from "./Charts/LineChart";
+export { default as ColumnChart } from "./Charts/ColumnChart";
 export { default as Tabs } from "./Tabs";
