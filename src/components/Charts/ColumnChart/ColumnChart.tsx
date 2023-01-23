@@ -12,7 +12,7 @@ const ColumnChart: FC<Props> = ({
   points = [],
   title = "",
   width = "100%",
-  height = "300px",
+  height = "400px",
 }) => {
   const data = useMemo(() => {
     let titles = [];
