@@ -76,7 +76,7 @@ export const DateLineChart: FC<Props> = ({
 }) => {
   const data = useMemo(
     () => [
-      ...points.map((point: { date; value }) => [point.date, point.value]),
+      ...points.map((point: { label; value }) => [point.label, point.value]),
     ],
     [points]
   );
