@@ -11,6 +11,7 @@ export { default as MainScreen } from "./Screens/MainScreen";
 export { default as NavbarScroller } from "./NavbarScroller/NavbarScroller";
 export { default as EmptyScreen } from "./Screens/EmptyScreen";
 export { default as TableScreen } from "./Screens/TableScreen";
+export { default as DashboardScreen } from "./Screens/DashboardScreen";
 export { default as DatePickerCustom } from "./DatePickers/DatePickerCustom";
 export * from "./Checkbox";
 export * from "./Charts/LineChart";
