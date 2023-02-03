@@ -1,5 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { Chart } from "react-google-charts";
+import { Container, NoData, TitleWrapper } from "../style";
 
 export interface Props {
   points: object[];
@@ -27,18 +28,26 @@ const ColumnChart: FC<Props> = ({
     ];
   }, [points]);
 
-  const options = {
-    title: title,
+  const Component = () => {
+    if (points?.length === 0) {
+      return <NoData>No Data</NoData>;
+    } else {
+      return (
+        <Chart
+          chartType="ColumnChart"
+          width={width}
+          height={height}
+          data={data}
+        />
+      );
+    }
   };
 
   return (
-    <Chart
-      chartType="ColumnChart"
-      width={width}
-      height={height}
-      data={data}
-      options={options}
-    />
+    <Container>
+      <TitleWrapper>{title}</TitleWrapper>
+      <Component />
+    </Container>
   );
 };
 export default ColumnChart;

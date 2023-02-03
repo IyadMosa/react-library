@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { Chart } from "react-google-charts";
-import { Container } from "./style";
+import { Container, NoData, TitleWrapper } from "../style";
 
 export interface Props {
   disabled?: boolean;
@@ -16,13 +16,10 @@ export const LineChart = ({
   data = [],
   title = "",
   width = "100%",
-  height = "400px",
+  height = "100%",
   ...props
 }) => {
   const options = {
-    chart: {
-      title: title,
-    },
     series: {
       0: { axis: props.xLabel },
     },
@@ -56,9 +53,18 @@ export const PointLineChart: FC<Props> = ({
     ],
     [points]
   );
+  const Component = () => {
+    if (points?.length === 0) {
+      return <NoData>No Data</NoData>;
+    } else {
+      return <LineChart title={title} data={data} />;
+    }
+  };
+
   return (
-    <Container id={"line-chart-container"}>
-      <LineChart title={title} data={data} />
+    <Container>
+      <TitleWrapper>{title}</TitleWrapper>
+      <Component />
     </Container>
   );
 };
@@ -80,5 +86,18 @@ export const DateLineChart: FC<Props> = ({
     return date1.localeCompare(date2);
   });
   const titledData = useMemo(() => [["Date", yLabel], ...data], [data]);
-  return <LineChart title={title} data={titledData} />;
+  const Component = () => {
+    if (points?.length === 0) {
+      return <NoData>No Data</NoData>;
+    } else {
+      return <LineChart title={title} data={titledData} />;
+    }
+  };
+
+  return (
+    <Container>
+      <TitleWrapper>{title}</TitleWrapper>
+      <Component />
+    </Container>
+  );
 };
