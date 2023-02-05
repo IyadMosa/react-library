@@ -31,4 +31,5 @@ export const TitleWrapper = styled.div`
   text-transform: capitalize;
   color: black;
   border-bottom: solid 1px black;
+  justify-content: space-between;
 `;
