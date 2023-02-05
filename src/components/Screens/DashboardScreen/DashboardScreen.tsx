@@ -4,6 +4,7 @@ import { ChartColumn, ChartRow, Container } from "./styles";
 import {
   ColumnChart,
   DateLineChart,
+  DateRangePickerModal,
   PieChart,
   PointLineChart,
 } from "../../index";
@@ -12,9 +13,16 @@ export interface Props {
   title: any;
   onInit: any;
   charts: any;
+  setFrom: any;
+  setTo: any;
 }
 
-const Dashboard: FC<Props> = ({ onInit = () => 0, charts = [] }) => {
+const Dashboard: FC<Props> = ({
+  onInit = () => 0,
+  charts = [],
+  setFrom = () => 0,
+  setTo = () => 0,
+}) => {
   useEffect(() => {
     const interval = setInterval(() => {
       onInit();
@@ -82,12 +90,23 @@ const DashboardScreen: FC<Props> = ({
   title = "",
   onInit = () => 0,
   charts = [],
+  setFrom = () => 0,
+  setTo = () => 0,
   ...props
 }) => {
   return (
     <EmptyScreen
       title={title}
-      page={<Dashboard onInit={onInit} title={""} charts={charts} />}
+      titleComponent={<DateRangePickerModal setFrom={setFrom} setTo={setTo} />}
+      page={
+        <Dashboard
+          onInit={onInit}
+          title={""}
+          charts={charts}
+          setFrom={setFrom}
+          setTo={setTo}
+        />
+      }
     />
   );
 };

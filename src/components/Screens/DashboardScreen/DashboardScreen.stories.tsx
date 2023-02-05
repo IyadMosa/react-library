@@ -41,9 +41,9 @@ export const dashboardScreen = () => {
         title: "Date Chart",
         type: "Date",
         points: [
-          { date: "01/2022", value: 500 },
-          { date: "02/2022", value: 550 },
-          { date: "03/2022", value: 450 },
+          { label: "01/2022", value: 500 },
+          { label: "02/2022", value: 550 },
+          { label: "03/2022", value: 450 },
         ],
         yLabel: "price",
       },
@@ -74,6 +74,8 @@ export const dashboardScreen = () => {
       title={"Dashboard"}
       onInit={() => console.log("get data for charts")}
       charts={charts}
+      setFrom={() => 0}
+      setTo={() => 0}
     />
   );
 };
@@ -112,6 +114,12 @@ export const emptyDashboardScreen = () => {
     ],
   ];
   return (
-    <DashboardScreen title={"Dashboard"} onInit={() => 0} charts={charts} />
+    <DashboardScreen
+      title={"Dashboard"}
+      onInit={() => 0}
+      charts={charts}
+      setFrom={() => 0}
+      setTo={() => 0}
+    />
   );
 };
