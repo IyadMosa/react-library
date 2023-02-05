@@ -13,6 +13,7 @@ export { default as EmptyScreen } from "./Screens/EmptyScreen";
 export { default as TableScreen } from "./Screens/TableScreen";
 export { default as DashboardScreen } from "./Screens/DashboardScreen";
 export { default as DatePickerCustom } from "./DatePickers/DatePickerCustom";
+export * from "./DatePickers/DateRangePickerCustom";
 export * from "./Checkbox";
 export * from "./Charts/LineChart";
 export { default as ColumnChart } from "./Charts/ColumnChart";
