@@ -5,12 +5,20 @@ export interface Props {
   title: string;
   page: any;
   disabled?: boolean;
+  titleComponent?: any;
 }
 
-const EmptyScreen: FC<Props> = ({ title = "", page = [], ...props }) => {
+const EmptyScreen: FC<Props> = ({
+  title = "",
+  page = [],
+  titleComponent = [],
+  ...props
+}) => {
   return (
     <Container>
-      <TitleWrapper>{title}</TitleWrapper>
+      <TitleWrapper>
+        {title} {titleComponent}
+      </TitleWrapper>
       <InnerContainer>{page}</InnerContainer>
     </Container>
   );
