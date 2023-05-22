@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto;
+  height: 100%;
+  width: 100%
   background-color: #f2f2f2;
 `;
 export const ContentContainer = styled.div`
@@ -14,16 +15,15 @@ export const ContentContainer = styled.div`
   justify-content: center;
 `;
 
-export const ImageContainer = styled.div`
-  width: 50%;
-  padding: 20px;
-  height: 100%;
-`;
-
 export const Image = styled.img`
+  background-size: cover;
+  background-position: center;
+  height: 100%;
   width: 100%;
-  // max-width: 400px;
-  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 `;
 
 export const Card = styled.div`
@@ -31,6 +31,10 @@ export const Card = styled.div`
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const Title = styled.h2`
