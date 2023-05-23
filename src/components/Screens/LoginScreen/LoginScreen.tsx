@@ -11,14 +11,21 @@ import {
 import Modal from "../../Modal";
 
 export interface Props {
-  value: object;
   onLogin: any;
   onRegister: any;
-  onChange: any;
   imgPath: String;
 }
 
-const RegistrationPage = ({ onRegister = () => 0, onClose = () => 0 }) => {
+const RegistrationPage = ({
+  onRegister = (userData: {
+    password: string;
+    phoneNumber: string;
+    address: { country: string; city: string; street: string };
+    email: string;
+    username: string;
+  }) => 0,
+  onClose,
+}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -95,14 +102,21 @@ const RegistrationPage = ({ onRegister = () => 0, onClose = () => 0 }) => {
   );
 };
 const LoginPage: FC<Props> = ({
-  value = {},
   imgPath = "",
-  onChange = () => 0,
   onLogin = () => 0,
   onRegister = () => 0,
 }) => {
-  const { username, password } = value;
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  const handleLogin = () => {
+    const loginData = {
+      username,
+      password,
+    };
+    onLogin(loginData);
+  };
   return (
     <Container>
       <Image src={imgPath} alt="Login Image" />
@@ -112,21 +126,25 @@ const LoginPage: FC<Props> = ({
         <Input
           placeholder="Username"
           value={username}
-          onChange={(e) => onChange({ ...value, username: e.target.value })}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <Input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => onChange({ ...value, password: e.target.value })}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit" onClick={onLogin}>
+        <Button type="submit" onClick={handleLogin}>
           Login
         </Button>
         <RegisterLink onClick={() => setShowModal(true)}>Register</RegisterLink>
       </Card>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)} isShowButtons={false}>
+        <Modal
+          onClose={() => setShowModal(false)}
+          isShowButtons={false}
+          disabledSubmit={true}
+        >
           <RegistrationPage
             onRegister={onRegister}
             onClose={() => setShowModal(false)}
@@ -142,20 +160,8 @@ const LoginScreen = ({
   onRegister = () => 0,
   imgPath = "",
 }) => {
-  const emptyValue = {
-    username: "",
-    Password: "",
-  };
-  const [value, setValue] = useState(emptyValue);
-
   return (
-    <LoginPage
-      onLogin={() => onLogin(value)}
-      onChange={setValue}
-      value={value}
-      imgPath={imgPath}
-      onRegister={onRegister}
-    />
+    <LoginPage onLogin={onLogin} imgPath={imgPath} onRegister={onRegister} />
   );
 };
 export default LoginScreen;
