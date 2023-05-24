@@ -3,10 +3,13 @@ import {
   Button,
   Card,
   Container,
+  ContentContainer,
   Image,
   Input,
   RegisterLink,
+  Column,
   Title,
+  Row,
 } from "./styles";
 import Modal from "../../Modal";
 
@@ -53,52 +56,59 @@ const RegistrationPage = ({
   };
 
   return (
-    <Card>
-      <Title>Registration</Title>
-      <Input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <Input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <Input
-        type="tel"
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
-      <Input
-        type="text"
-        placeholder="Street"
-        value={street}
-        onChange={(e) => setStreet(e.target.value)}
-      />
-      <Input
-        type="text"
-        placeholder="City"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
-      <Input
-        type="text"
-        placeholder="Country"
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
-      />
-      <Button onClick={handleRegistration}>Register</Button>
-    </Card>
+    <ContentContainer>
+      <Row>
+        <Column>
+          <Input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="tel"
+            placeholder="Phone Number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </Column>
+        <Column>
+          <Input
+            type="text"
+            placeholder="Street"
+            value={street}
+            onChange={(e) => setStreet(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="Country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Button onClick={handleRegistration}>Register</Button>
+      </Row>
+    </ContentContainer>
   );
 };
 const LoginPage: FC<Props> = ({
@@ -144,6 +154,7 @@ const LoginPage: FC<Props> = ({
           onClose={() => setShowModal(false)}
           isShowButtons={false}
           disabledSubmit={true}
+          title={"Registration"}
         >
           <RegistrationPage
             onRegister={onRegister}

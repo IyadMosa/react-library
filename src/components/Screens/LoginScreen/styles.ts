@@ -2,17 +2,30 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%
   background-color: #f2f2f2;
 `;
+
 export const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   align-items: center;
-  justify-content: center;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
 `;
 
 export const Image = styled.img`
