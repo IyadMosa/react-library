@@ -6,13 +6,14 @@ import { Column } from "react-table";
 export interface Props {
   title: string;
   disabled?: boolean;
+  showAdd?: boolean;
   data: object[];
   columns: Column[];
-  addForm: React.ReactNode | string;
+  addForm?: React.ReactNode | string;
   modelTitle?: string;
-  onAddSubmit: any;
+  onAddSubmit?: any;
   onInit: any;
-  disabledSubmit: boolean;
+  disabledSubmit?: boolean;
 }
 
 const TablePage: FC<Props> = ({
@@ -24,6 +25,7 @@ const TablePage: FC<Props> = ({
   disabled = false,
   onInit = () => 0,
   disabledSubmit = false,
+  ...props
 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +39,7 @@ const TablePage: FC<Props> = ({
       data={data}
       columns={columns}
       addForm={addForm}
+      showAdd={props.showAdd}
       onAddSubmit={() => {
         onAddSubmit();
         setTimeout(() => {
@@ -57,6 +60,7 @@ const TableScreen: FC<Props> = ({
   data = [],
   columns = [],
   addForm,
+  showAdd = true,
   onAddSubmit = () => 0,
   onInit = () => 0,
   disabledSubmit = false,
@@ -69,6 +73,7 @@ const TableScreen: FC<Props> = ({
         <TablePage
           data={data}
           columns={columns}
+          showAdd={showAdd}
           addForm={addForm}
           onAddSubmit={onAddSubmit}
           onInit={onInit}

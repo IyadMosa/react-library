@@ -163,7 +163,7 @@ export const AddForm = ({ ...props }) => {
   return (
     <AddEditSearchForm
       disabledSubmit2={true}
-      showAdd={true}
+      showAdd={props.showAdd}
       showEdit={false}
       showSearch={false}
       {...props}

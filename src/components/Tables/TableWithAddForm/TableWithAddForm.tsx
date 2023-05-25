@@ -16,6 +16,7 @@ export interface TableWithFormProps {
   onAddSubmit?: any;
   disabled?: boolean;
   disabledSubmit: boolean;
+  showAdd?: boolean;
 }
 
 const TableWithAddForm: FC<TableWithFormProps> = ({
@@ -33,6 +34,7 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
       addComponent={
         <AddForm
           addForm={props.addForm}
+          showAdd={props.showAdd}
           onAddSubmit={props.onAddSubmit}
           disabledSubmit2={disabledSubmit}
         />
