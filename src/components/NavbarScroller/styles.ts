@@ -25,7 +25,18 @@ export const Navbar = styled.nav`
   }
 `;
 
+export const UserAndBrand = styled.div`
+  display: flex;
+`;
+
 export const Brand = styled.a`
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 1rem;
+  padding-right: 1rem;
+`;
+
+export const User = styled.span`
   font-weight: bold;
   font-style: italic;
   margin-left: 1rem;

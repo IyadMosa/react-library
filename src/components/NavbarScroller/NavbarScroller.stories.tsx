@@ -7,6 +7,7 @@ export default {
 };
 
 export const navigator = () => {
+  const user = <span>iyad 20</span>;
   const brand = { name: "NavbarScroller", to: "/" };
   const links = [
     { name: "About Me", to: "/about" },
@@ -15,5 +16,5 @@ export const navigator = () => {
     { name: "Graphic Design", to: "/design" },
     { name: "Contact", to: "/contact" },
   ];
-  return <NavbarScroller brand={brand} links={links} />;
+  return <NavbarScroller user={user} brand={brand} links={links} />;
 };
