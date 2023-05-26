@@ -79,3 +79,9 @@ export const RegisterLink = styled.div`
   text-decoration: underline;
   text-align: center;
 `;
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+`;

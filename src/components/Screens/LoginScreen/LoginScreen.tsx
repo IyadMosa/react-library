@@ -10,13 +10,15 @@ import {
   Column,
   Title,
   Row,
+  ErrorMessage,
 } from "./styles";
 import Modal from "../../Modal";
 
 export interface Props {
   onLogin: any;
   onRegister: any;
-  imgPath: String;
+  imgPath?: String;
+  errorMsg?: String;
 }
 
 const RegistrationPage = ({
@@ -113,6 +115,7 @@ const RegistrationPage = ({
 };
 const LoginPage: FC<Props> = ({
   imgPath = "",
+  errorMsg,
   onLogin = () => 0,
   onRegister = () => 0,
 }) => {
@@ -144,6 +147,7 @@ const LoginPage: FC<Props> = ({
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
         <Button type="submit" onClick={handleLogin}>
           Login
         </Button>
@@ -170,9 +174,15 @@ const LoginScreen = ({
   onLogin = (value: { username: string; Password: string }) => 0,
   onRegister = () => 0,
   imgPath = "",
+  errorMsg,
 }) => {
   return (
-    <LoginPage onLogin={onLogin} imgPath={imgPath} onRegister={onRegister} />
+    <LoginPage
+      onLogin={onLogin}
+      imgPath={imgPath}
+      onRegister={onRegister}
+      errorMsg={errorMsg}
+    />
   );
 };
 export default LoginScreen;
