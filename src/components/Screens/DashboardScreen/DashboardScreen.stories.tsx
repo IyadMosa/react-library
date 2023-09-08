@@ -68,6 +68,29 @@ export const dashboardScreen = () => {
         yLabel: "price",
       },
     ],
+    [
+      {
+        title: "table",
+        type: "table",
+        table_columns: [
+          {
+            Header: "ID",
+            accessor: "id",
+            style: {
+              textAlign: "center",
+            },
+          },
+          {
+            Header: "FirstName",
+            accessor: "firstName",
+            style: {
+              textAlign: "center",
+            },
+          },
+        ],
+        table_data: [{ id: 1, firstName: "Iyad" }],
+      },
+    ],
   ];
   return (
     <DashboardScreen

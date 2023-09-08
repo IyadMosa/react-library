@@ -8,6 +8,7 @@ import {
   PieChart,
   PointLineChart,
 } from "../../index";
+import Table from "../../Tables/Table";
 
 export interface Props {
   title: any;
@@ -15,6 +16,7 @@ export interface Props {
   charts: any;
   setFrom: any;
   setTo: any;
+  refresh?: boolean;
 }
 
 const Dashboard: FC<Props> = ({
@@ -22,13 +24,14 @@ const Dashboard: FC<Props> = ({
   charts = [],
   setFrom = () => 0,
   setTo = () => 0,
+  refresh = true,
 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
-      onInit();
+      refresh && onInit();
     }, 60000);
     return () => clearInterval(interval);
-  }, []);
+  }, [refresh]);
 
   const ChartsComponents: any = () =>
     charts.map((arr) => {
@@ -40,6 +43,8 @@ const Dashboard: FC<Props> = ({
               type: string;
               points: [];
               yLabel: string;
+              table_columns: [];
+              table_data: [];
             }) => {
               switch (chart.type.toLowerCase()) {
                 case "pie":
@@ -74,6 +79,16 @@ const Dashboard: FC<Props> = ({
                       />
                     </ChartColumn>
                   );
+                case "table":
+                  return (
+                    <ChartColumn>
+                      <Table
+                        tableTitle={chart.title}
+                        columns={chart.table_columns}
+                        data={chart.table_data}
+                      />
+                    </ChartColumn>
+                  );
               } //switch
             }
           )}
@@ -92,6 +107,7 @@ const DashboardScreen: FC<Props> = ({
   charts = [],
   setFrom = () => 0,
   setTo = () => 0,
+  refresh = true,
   ...props
 }) => {
   return (
@@ -105,6 +121,7 @@ const DashboardScreen: FC<Props> = ({
           charts={charts}
           setFrom={setFrom}
           setTo={setTo}
+          refresh={refresh}
         />
       }
     />
