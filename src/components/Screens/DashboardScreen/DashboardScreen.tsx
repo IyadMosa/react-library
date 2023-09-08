@@ -26,7 +26,7 @@ const Dashboard: FC<Props> = ({
   useEffect(() => {
     const interval = setInterval(() => {
       onInit();
-    }, 15000);
+    }, 60000);
     return () => clearInterval(interval);
   }, []);
 

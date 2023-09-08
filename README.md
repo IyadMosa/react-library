@@ -11,4 +11,4 @@ to use the react-library:
 Publish the library:
 1. update the version on package.json
     -   "version": "2.0.0-21",
-2. run the command "run publish" on terminal under react-library folder
+2. run the command "npm publish" on terminal under react-library folder
