@@ -14,6 +14,7 @@ export interface Props {
   onAddSubmit?: any;
   onInit: any;
   disabledSubmit?: boolean;
+  pageSize?: number;
 }
 
 const TablePage: FC<Props> = ({
@@ -51,6 +52,7 @@ const TablePage: FC<Props> = ({
       minHeight={600}
       minWidth={600}
       disabledSubmit={disabledSubmit}
+      pageSize={props.pageSize}
     />
   );
 };
