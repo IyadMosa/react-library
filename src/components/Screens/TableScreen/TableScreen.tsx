@@ -26,6 +26,7 @@ const TablePage: FC<Props> = ({
   disabled = false,
   onInit = () => 0,
   disabledSubmit = false,
+  pageSize = 10,
   ...props
 }) => {
   useEffect(() => {
@@ -52,7 +53,7 @@ const TablePage: FC<Props> = ({
       minHeight={600}
       minWidth={600}
       disabledSubmit={disabledSubmit}
-      pageSize={props.pageSize}
+      pageSize={pageSize}
     />
   );
 };

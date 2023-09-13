@@ -26,6 +26,7 @@ const Table: FC<TableProps> = ({
   tableTitle = "Table Title",
   data = [],
   columns,
+  pageSize = 10,
   ...props
 }) => {
   return (
@@ -41,7 +42,7 @@ const Table: FC<TableProps> = ({
         data={data}
         filterable={props.filterable ? props.filterable : true}
         columns={columns}
-        defaultPageSize={props.pageSize ? props.pageSize : 10}
+        defaultPageSize={pageSize}
       />
     </Container>
   );

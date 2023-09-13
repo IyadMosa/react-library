@@ -24,6 +24,7 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
   data = [],
   columns,
   disabledSubmit = false,
+  pageSize = 10,
   ...props
 }) => {
   return (
@@ -41,6 +42,7 @@ const TableWithAddForm: FC<TableWithFormProps> = ({
       }
       minWidth={props.minWidth}
       disabled={props.disabled}
+      pageSize={pageSize}
       {...props}
     />
   );
