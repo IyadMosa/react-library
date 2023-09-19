@@ -43,6 +43,11 @@ const Table: FC<TableProps> = ({
         filterable={props.filterable ? props.filterable : true}
         columns={columns}
         defaultPageSize={pageSize}
+        pageSizeOptions={
+          [5, 10, 20, 25, 50, 100].includes(pageSize)
+            ? [5, 10, 20, 25, 50, 100]
+            : [...[5, 10, 20, 25, 50, 100], pageSize]
+        }
       />
     </Container>
   );
