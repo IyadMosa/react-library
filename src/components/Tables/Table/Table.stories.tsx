@@ -31,3 +31,7 @@ const data = [
 export const table = () => (
   <Table tableTitle="testing" columns={columns} data={data} />
 );
+
+export const table100Rows = () => (
+  <Table tableTitle="100 Row" columns={columns} data={[]} pageSize={100} />
+);

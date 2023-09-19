@@ -35,5 +35,8 @@ export const tableWithAddForm = () => (
         data={data}
         modelTitle={"add form"}
         onAddSubmit={() => alert("Modal submit")}
-        disabledSubmit={false}/>
+        disabledSubmit={false}
+        pageSize={100}
+    />
+
 );

@@ -83,6 +83,7 @@ const TableScreen: FC<Props> = ({
           title={""}
           disabled={props.disabled}
           disabledSubmit={disabledSubmit}
+          pageSize={props.pageSize}
         />
       }
     />

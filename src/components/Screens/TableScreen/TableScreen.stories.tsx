@@ -28,6 +28,7 @@ export const tableScreen = () => {
       onAddSubmit={() => alert("submit")}
       onInit={() => console.log("send rest...")}
       disabledSubmit={false}
+      pageSize={100}
     />
   );
 };
