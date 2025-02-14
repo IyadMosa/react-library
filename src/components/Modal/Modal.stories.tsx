@@ -9,19 +9,21 @@ export default {
 
 export const modal = () => {
   const [showModel, setShowModel] = useState(false);
+
   return (
     <div>
       <button onClick={() => setShowModel(true)}>open modal</button>
-      {showModel && (
-        <Modal
-          title="testing"
-          onSubmit={() => {
-            alert("Modal submit");
-            setShowModel(false);
-          }}
-          onClose={() => setShowModel(false)}
-        />
-      )}
+
+      <Modal
+        title="testing"
+        onSubmit={() => {
+          alert("Modal submit");
+          setShowModel(false);
+        }}
+        onClose={() => setShowModel(false)}
+        children={<div></div>}
+        isOpen={showModel}
+      />
     </div>
   );
 };
@@ -47,14 +49,21 @@ const TempForm = () => {
 };
 
 export const modalWithForm = () => {
+  const [showModel, setShowModel] = useState(false);
+
   return (
     <div>
+      <button onClick={() => setShowModel(true)}>open modal</button>
+
       <Modal
         title="testing"
         onSubmit={() => {
-          alert("Modal submit2");
+          alert("Modal submit");
+          setShowModel(false);
         }}
+        onClose={() => setShowModel(false)}
         children={<TempForm />}
+        isOpen={showModel}
       />
     </div>
   );
