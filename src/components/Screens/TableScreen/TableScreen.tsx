@@ -1,52 +1,54 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useCallback } from "react";
 import EmptyScreen from "../EmptyScreen";
 import TableWithAddForm from "../../Tables/TableWithAddForm";
 import { Column } from "react-table";
 
-export interface Props {
+export interface TableScreenProps {
   title: string;
-  disabled?: boolean;
-  showAdd?: boolean;
   data: object[];
   columns: Column[];
   addForm?: React.ReactNode | string;
+  showAdd?: boolean;
+  disabled?: boolean;
   modelTitle?: string;
-  onAddSubmit?: any;
-  onInit: any;
+  onAddSubmit?: () => void;
+  onInit: () => void;
   disabledSubmit?: boolean;
   pageSize?: number;
 }
 
-const TablePage: FC<Props> = ({
-  data = [],
-  columns = [],
+const TablePage: FC<TableScreenProps> = ({
+  data,
+  columns,
   addForm,
-  onAddSubmit = () => 0,
-  modelTitle = "",
+  onAddSubmit,
+  modelTitle,
   disabled = false,
-  onInit = () => 0,
+  onInit,
   disabledSubmit = false,
   pageSize = 10,
-  ...props
 }) => {
+  // Memoized initialization function
+  const initHandler = useCallback(() => {
+    onInit();
+  }, [onInit]);
+
+  // Auto-refresh table every 15 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      onInit();
-    }, 15000);
+    const interval = setInterval(initHandler, 15000);
     return () => clearInterval(interval);
-  }, []);
+  }, [initHandler]);
+
   return (
     <TableWithAddForm
-      tableTitle={""}
+      tableTitle=""
       data={data}
       columns={columns}
       addForm={addForm}
-      showAdd={props.showAdd}
+      showAdd={!!addForm}
       onAddSubmit={() => {
-        onAddSubmit();
-        setTimeout(() => {
-          onInit();
-        }, 1000);
+        onAddSubmit?.();
+        setTimeout(initHandler, 1000);
       }}
       modelTitle={modelTitle}
       disabled={disabled}
@@ -58,35 +60,8 @@ const TablePage: FC<Props> = ({
   );
 };
 
-const TableScreen: FC<Props> = ({
-  title = "",
-  data = [],
-  columns = [],
-  addForm,
-  showAdd = true,
-  onAddSubmit = () => 0,
-  onInit = () => 0,
-  disabledSubmit = false,
-  ...props
-}) => {
-  return (
-    <EmptyScreen
-      title={title}
-      page={
-        <TablePage
-          data={data}
-          columns={columns}
-          showAdd={showAdd}
-          addForm={addForm}
-          onAddSubmit={onAddSubmit}
-          onInit={onInit}
-          title={""}
-          disabled={props.disabled}
-          disabledSubmit={disabledSubmit}
-          pageSize={props.pageSize}
-        />
-      }
-    />
-  );
+const TableScreen: FC<TableScreenProps> = ({ title, ...props }) => {
+  return <EmptyScreen title={title} page={<TablePage {...props} />} />;
 };
+
 export default TableScreen;
