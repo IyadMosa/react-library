@@ -24,18 +24,15 @@ const DateRangePickerModal: FC<Props> = ({
       <IconButton color="inherit" onClick={() => setShowModel(true)}>
         <AccessTimeIcon />
       </IconButton>
-      {showModel && (
-        <Modal
-          onSubmit={() => {
-            setFrom(from1);
-            setTo(to1);
-            setShowModel(false);
-          }}
-          onClose={() => setShowModel(false)}
-          children={<DateRangePickerCustom setFrom={setFrom1} setTo={setTo1} />}
-          disabledSubmit={false}
-        />
-      )}
+      <Modal
+        disableSubmit={false}
+        onSubmit={() => {
+          setShowModel(false);
+        }}
+        onClose={() => setShowModel(false)}
+        children={<DateRangePickerCustom setFrom={setFrom1} setTo={setTo1} />}
+        isOpen={showModel}
+      />
     </div>
   );
 };

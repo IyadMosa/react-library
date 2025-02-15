@@ -6,7 +6,7 @@ import { AddForm } from "../../AddEditForm";
 export interface TableWithFormProps {
   tableTitle?: string;
   data?: object[];
-  columns: Column[];
+  columns: [];
   pageSize?: number;
   addForm?: React.ReactNode | string;
   filterable?: boolean;

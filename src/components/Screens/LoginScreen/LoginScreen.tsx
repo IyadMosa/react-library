@@ -2,15 +2,15 @@ import React, { FC, useState } from "react";
 import {
   Button,
   Card,
+  Column,
   Container,
   ContentContainer,
+  ErrorMessage,
   Image,
   Input,
   RegisterLink,
-  Column,
-  Title,
   Row,
-  ErrorMessage,
+  Title,
 } from "./styles";
 import Modal from "../../Modal";
 
@@ -153,19 +153,22 @@ const LoginPage: FC<Props> = ({
         </Button>
         <RegisterLink onClick={() => setShowModal(true)}>Register</RegisterLink>
       </Card>
-      {showModal && (
-        <Modal
-          onClose={() => setShowModal(false)}
-          isShowButtons={false}
-          disabledSubmit={true}
-          title={"Registration"}
-        >
+      <Modal
+        title={"Registration"}
+        showButtons={false}
+        disableSubmit={true}
+        onSubmit={() => {
+          setShowModal(false);
+        }}
+        onClose={() => setShowModal(false)}
+        children={
           <RegistrationPage
             onRegister={onRegister}
             onClose={() => setShowModal(false)}
           />
-        </Modal>
-      )}
+        }
+        isOpen={showModal}
+      />
     </Container>
   );
 };

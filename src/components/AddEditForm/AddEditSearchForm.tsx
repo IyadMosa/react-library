@@ -71,9 +71,8 @@ const AddEditSearchForm: FC<AEProps> = ({
             onClose={closeModal}
             onSubmit={() => handleSubmit(props.onAddSubmit)}
             disableSubmit={disabledSubmit}
-          >
-            {props.addForm}
-          </Modal>
+            children={props.addForm}
+          />
         </>
       )}
 
@@ -90,9 +89,8 @@ const AddEditSearchForm: FC<AEProps> = ({
             onClose={closeModal}
             onSubmit={() => handleSubmit(props.onEditSubmit)}
             disableSubmit={disabledSubmit}
-          >
-            {props.editForm}
-          </Modal>
+            children={props.editForm}
+          />
         </>
       )}
 
@@ -109,9 +107,8 @@ const AddEditSearchForm: FC<AEProps> = ({
             onClose={closeModal}
             onSubmit={() => handleSubmit(props.onSearchSubmit)}
             disableSubmit={disabledSubmit}
-          >
-            {props.searchForm}
-          </Modal>
+            children={props.searchForm}
+          />
         </>
       )}
     </Container>

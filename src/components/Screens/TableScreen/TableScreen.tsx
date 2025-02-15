@@ -1,12 +1,11 @@
-import React, { FC, useEffect, useCallback } from "react";
+import React, { FC, useCallback, useEffect } from "react";
 import EmptyScreen from "../EmptyScreen";
 import TableWithAddForm from "../../Tables/TableWithAddForm";
-import { Column } from "react-table";
 
 export interface TableScreenProps {
   title: string;
   data: object[];
-  columns: Column[];
+  columns: [];
   addForm?: React.ReactNode | string;
   showAdd?: boolean;
   disabled?: boolean;
@@ -18,8 +17,10 @@ export interface TableScreenProps {
 }
 
 const TablePage: FC<TableScreenProps> = ({
+  title,
   data,
   columns,
+  showAdd = true,
   addForm,
   onAddSubmit,
   modelTitle,
@@ -45,7 +46,7 @@ const TablePage: FC<TableScreenProps> = ({
       data={data}
       columns={columns}
       addForm={addForm}
-      showAdd={!!addForm}
+      showAdd={showAdd}
       onAddSubmit={() => {
         onAddSubmit?.();
         setTimeout(initHandler, 1000);
@@ -61,7 +62,9 @@ const TablePage: FC<TableScreenProps> = ({
 };
 
 const TableScreen: FC<TableScreenProps> = ({ title, ...props }) => {
-  return <EmptyScreen title={title} page={<TablePage {...props} />} />;
+  return (
+    <EmptyScreen title={title} page={<TablePage title={title} {...props} />} />
+  );
 };
 
 export default TableScreen;
