@@ -48,7 +48,7 @@ const TablePage: FC<TableScreenProps> = ({
       addForm={addForm}
       showAdd={showAdd}
       onAddSubmit={() => {
-        onAddSubmit?.();
+        onAddSubmit();
         setTimeout(initHandler, 1000);
       }}
       modelTitle={modelTitle}
