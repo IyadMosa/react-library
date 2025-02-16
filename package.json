@@ -1,6 +1,6 @@
 {
   "name": "@iyadmosa/react-library",
-  "version": "3.0.0-13",
+  "version": "3.0.0-15",
   "description": "",
   "repository": {
     "type": "git",
@@ -94,5 +94,8 @@
     "typescript": "^4.8.4",
     "react-google-charts": "^4.0.0",
     "date-fns": "^2.29.3"
+  },
+  "dependencies": {
+    "@types/react-icons": "^3.0.0"
   }
 }

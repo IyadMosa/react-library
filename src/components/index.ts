@@ -21,3 +21,4 @@ export { default as PieChart } from "./Charts/PieChart";
 export { default as Tabs } from "./Tabs";
 export { default as LoginScreen } from "./Screens/LoginScreen";
 export { default as ExportImportScreen } from "./Screens/ExportImportScreen";
+export { default as LoadingSpinner } from "./loading/LoadingSpinner";
