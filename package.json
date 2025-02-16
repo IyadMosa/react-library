@@ -96,6 +96,7 @@
     "date-fns": "^2.29.3"
   },
   "dependencies": {
+    "@mui/material": "^6.4.4",
     "@types/react-icons": "^3.0.0"
   }
 }
