@@ -16,6 +16,7 @@ export interface ModalProps {
   onSubmit?: () => void;
   showButtons?: boolean;
   disableSubmit?: boolean;
+  disabled?: boolean;
 }
 
 const Modal: FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps>(
@@ -28,6 +29,7 @@ const Modal: FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps>(
       showButtons = true,
       disableSubmit = false,
       title = "",
+      disabled = false,
     },
     ref
   ) => {
@@ -62,17 +64,23 @@ const Modal: FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps>(
             &times;
           </CloseButton>
         </HeaderWrapper>
-        <ContentsWrapper>{children}</ContentsWrapper>
+        <ContentsWrapper>
+          {React.cloneElement(children as React.ReactElement, { disabled })}
+        </ContentsWrapper>
         {showButtons && (
           <ButtonsWrapper>
             <button
               className="btn btn-success"
               onClick={handleSubmit}
-              disabled={disableSubmit}
+              disabled={disableSubmit || disabled}
             >
               Submit
             </button>
-            <button className="btn btn-primary" onClick={handleClose}>
+            <button
+              className="btn btn-primary"
+              onClick={handleClose}
+              disabled={disabled}
+            >
               Close
             </button>
           </ButtonsWrapper>
