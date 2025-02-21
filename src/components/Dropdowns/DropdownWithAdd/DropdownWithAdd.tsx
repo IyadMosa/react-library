@@ -3,10 +3,15 @@ import Dropdown from "../Dropdown";
 import { Container } from "./styles";
 import { AddForm } from "../../AddEditForm";
 
+export interface DropdownOption {
+  label: string;
+  value: string | object;
+}
+
 export interface DropdownProps {
   title: string;
   value: object;
-  options?: object[];
+  options?: DropdownOption[];
   placeholder?: string;
   onChange?: any;
   disabled?: boolean;
@@ -34,4 +39,5 @@ const DropdownWithAddForm: FC<DropdownProps> = ({
     </Container>
   );
 };
+
 export default DropdownWithAddForm;
