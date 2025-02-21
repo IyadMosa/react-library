@@ -1,18 +1,23 @@
+// AmountSelector.tsx
 import React from "react";
 import * as S from "./styles";
 
 interface AmountSelectorProps {
-  title: string;
+  label?: string;
   amount: number;
   onChange: (amount: number) => void;
+  fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const predefinedAmounts = [50, 100, 200, 500, 1000];
 
 const AmountSelector: React.FC<AmountSelectorProps> = ({
-  title = "Amount",
+  label = "Amount",
   amount,
   onChange,
+  fullWidth = false,
+  disabled = false,
 }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(event.target.value) || 0;
@@ -24,27 +29,31 @@ const AmountSelector: React.FC<AmountSelectorProps> = ({
   };
 
   return (
-    <S.Container>
-      <S.InputWrapper>
-        <S.Label>{title}:</S.Label>
-        <S.Input
-          type="number"
-          value={amount}
-          onChange={handleInputChange}
-          placeholder="Enter amount"
-        />
-      </S.InputWrapper>
-
-      <S.ButtonGroup>
-        {predefinedAmounts.map((value) => (
-          <S.Button
-            key={value}
-            onClick={() => handlePredefinedAmountClick(value)}
-          >
-            +{value}
-          </S.Button>
-        ))}
-      </S.ButtonGroup>
+    <S.Container $fullWidth={fullWidth} $disabled={disabled}>
+      <S.Label htmlFor="amount-input">{label}</S.Label>{" "}
+      <S.Input
+        type="number"
+        id="amount-input"
+        value={amount}
+        onChange={handleInputChange}
+        placeholder="Enter amount"
+        disabled={disabled}
+        required
+      />
+      {/* Conditionally render buttons */}
+      {!disabled && (
+        <S.ButtonGroup>
+          {predefinedAmounts.map((value) => (
+            <S.Button
+              key={value}
+              onClick={() => handlePredefinedAmountClick(value)}
+              disabled={disabled}
+            >
+              +{value}
+            </S.Button>
+          ))}
+        </S.ButtonGroup>
+      )}
     </S.Container>
   );
 };

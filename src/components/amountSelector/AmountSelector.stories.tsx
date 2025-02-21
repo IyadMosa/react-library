@@ -35,3 +35,20 @@ LargeAmount.args = {
   title: "Select Amount",
   amount: 5000,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  amount: 0,
+  label: "Amount",
+  fullWidth: false,
+  disabled: true,
+};
+
+export const Required = Template.bind({});
+Required.args = {
+  amount: 0,
+  label: "Amount",
+  fullWidth: false,
+  required: true,
+  disabled: false,
+};
